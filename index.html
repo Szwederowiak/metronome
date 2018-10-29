@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" type="text/css"/>
+    <link rel="stylesheet" href="bootstrap-grid.css" type="text/css"/>
+    <script src="script.js" type="text/javascript"></script>
+    
+</head>
+<body>
+    <audio id="clickSound">
+        <source src="sounds/stick_Woody.flac" type="audio/flac"/>
+    </audio>
+    <div id="settings">
+        <div class="metrum">
+            <input type="number" id="metrum-top" value="4">
+        </div>
+        <div class="start">
+            <button id="play-button">Start!</button>
+        </div>
+    </div>
+    <div id="metronome">
+        <div id="clock">
+
+            
+        </div>        
+    </div>
+    
+    <script>
+
+        var setMetrumTop = document.getElementById("metrum-top");
+        var clock = document.getElementById("clock");
+        var dots = document.getElementsByClassName("dot");
+        var playButton = document.getElementById("play-button");
+        var sound = document.getElementById("clickSound")
+            
+        /*  RYSOWANIE KROPEK  */
+        window.addEventListener("load", drawDots)
+        
+        setMetrumTop.addEventListener("input", drawDots)
+        function drawDots() {
+            var dotAngle = 360/setMetrumTop.value;
+            var dot = "";
+            for(i = 0; i < setMetrumTop.value; i++) {
+                dot += '<div class="clock-tip" style="transform: translateX(50%) rotate(' + (dotAngle * i) + 'deg)"><span class="dot"></span></div>'
+            }
+            clock.innerHTML = dot;
+            
+
+        }
+            
+        /*   WŁĄCZANIE METRONOMU   */
+        
+        playButton.addEventListener("click", function() {setInterval(startMetronome, 1000)})
+        var counter = 0;
+        
+        function startMetronome() {
+            setTimeout(function(){dots[counter].classList.add("light")}, 0)
+            sound.play();
+            setTimeout(function(){dots[counter].classList.remove("light")}, 300)
+            
+            counter++; 
+            
+            if(counter == dots.length) {
+                counter = 0;
+            }
+        }
+</script> 
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

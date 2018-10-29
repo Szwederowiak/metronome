@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&subset=latin-ext');
+
+body {
+    margin: 0;
+    background: #20262e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+#metronome {
+    height: 500px;
+    width: 500px;
+    border: solid 1px #ffffff33;
+    
+}
+
+#metronome #clock {
+    height: 100%;
+    width: 100%;
+    border: solid;
+    border-radius: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#clock::after{
+    content: '';
+    height: 30px; 
+    width: 30px; 
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 100%;
+    z-index: -1;
+}
+
+#metronome #clock .clock-tip {
+    position: absolute;
+    bottom: 50%;
+    right: 50%;
+    height: calc(50% + 10px);
+    width: 20px;
+    transition: 0.3s;
+    transform-origin: bottom center;
+    transform: translateX(50%)
+
+
+}
+#metronome #clock .clock-tip span.dot {
+    width: 20px;
+    height: 20px;
+    background: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 100%;
+    box-shadow: 0 0 1px white;
+    transition: 0.05s;
+
+}
+
+#metronome #clock .clock-tip span.dot.light {
+    background: rgba(225, 225, 0);
+    box-shadow: 0 0 10px 3px yellow, 0 0 10px 2px yellow
+}
+
+#settings {
+    height: 150px;
+    width: 300px;
+    background: rgba(200, 200, 200, 0.1);
+    margin-right: 50px;
+    height: 500px;
+    padding: 20px
+    
+
+}
+
+
+
+
+
+
+
+
+
+
